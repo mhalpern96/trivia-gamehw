@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Trivia</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+</head>
+<body>
+ <h1>Trivia</h1> 
+ <h2><div id= "Timer"> </div></h2>
+ 
+ <h2>Question 1</h2>
+ <input type="radio" name="Question1" value = 1> answer 
+ <input type="radio" name="Question1" value= 2> test * 
+ <input type="radio" name="Question1" value= 3> test3
+ <input type="radio" name="Question1" value= 4> test4
+<br>
+<h2>Question 2</h2>
+ <input type="radio" name="Question2" value = 1> answer 
+ <input type="radio" name="Question2" value= 2> test  
+ <input type="radio" name="Question2" value= 3> test3
+ <input type="radio" name="Question2" value= 4> test4 *
+ <br>
+ <h2>Question 3</h2>
+ <input type="radio" name="Question3" value = 1> answer 
+ <input type="radio" name="Question3" value= 2> test  
+ <input type="radio" name="Question3" value= 3> test3 *
+ <input type="radio" name="Question3" value= 4> test4
+ <br>
+ <h2>Question 4</h2>
+ <input type="radio" name="Question4" value = 1> answer * 
+ <input type="radio" name="Question4" value= 2> test  
+ <input type="radio" name="Question4" value= 3> test3
+ <input type="radio" name="Question4" value= 4> test4
+ <div id = "result"></div>
+</body>
+</html>
+<script type="text/javascript">
+ $(document).ready(function(){
+ var timer = 60;
+ var element = document.getElementById("Timer");
+ var oneSec = setInterval(countDown, 1000);
+var result = 0;
+
+function countDown(){
+ element.innerHTML = "Time Remaining:" + timer + " seconds";
+ 
+ if (timer == 0){
+     clearInterval(oneSec);
+     finish;
+    document.getElementById("result").innerHTML = result + "correct";
+    
+ }
+ timer --;
+ 
+}
+function finish(){
+    var q1 = 0;
+var q2 = 0;
+var q3 = 0;
+var q4 = 0;
+    if ($('[name="Question1"]:checked').val = 2){
+        q1 = 1;
+    }
+    else{
+     q1 = 0;
+    }
+    if ($('[name="Question2"]:checked').val = 4){
+        q2 = 1;
+    }
+    else{
+     q2 = 0;
+    }
+    if ($('[name="Question3"]:checked').val = 3){
+        q3 = 1;
+    }
+    else{
+     q3 = 0;
+    }
+    if ($('[name="Question4"]:checked').val = 1){
+        q4 = 1;
+    }
+    else{
+     q4 = 0;
+    }
+    result = q1 + q2 + q3 + q4;
+}
+});
+</script>
